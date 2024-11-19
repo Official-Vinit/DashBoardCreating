@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Update Profile</h2>
+<form method="POST">
+    <input type="text" name="username" value="{{ current_user.username }}" required>
+    <input type="email" name="email" value="{{ current_user.email }}" required>
+    <button type="submit">Update</button>
+</form>
+{% endblock %}

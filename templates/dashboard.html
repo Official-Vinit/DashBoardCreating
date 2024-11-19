@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Dashboard</h2>
+<a href="{{ url_for('profile') }}">Edit Profile</a>
+<a href="{{ url_for('logout') }}">Logout</a>
+<form method="POST">
+    <textarea name="content" placeholder="Write something..." required></textarea>
+    <button type="submit">Post</button>
+</form>
+<hr>
+{% for post in posts %}
+    <p>{{ post.content }}</p>
+    <p>Likes: {{ post.likes }} <a href="{{ url_for('like', post_id=post.id) }}">Like</a></p>
+    <hr>
+{% endfor %}
+{% endblock %}
